@@ -16,7 +16,7 @@ class Cfg
         $this->app = $app;
     }
 
-    public static function init($app)
+    public static function boot($app)
     {
         if (!isset(self::$instance)) {
             self::$instance = new static($app);

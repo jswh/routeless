@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Routeless\Core;
+namespace Routeless\Services;
 
 
 use Illuminate\Database\Capsule\Manager;
@@ -14,4 +14,5 @@ class DB extends Manager
         $db->addConnection($config);
         $db->setAsGlobal();
     }
+
 }

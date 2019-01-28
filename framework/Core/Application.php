@@ -5,6 +5,7 @@ namespace Routeless\Core;
 
 use Routeless\Core\Exceptions\ErrorHandler;
 use Routeless\Core\RPC\{Request, Response, RPC};
+use Routeless\Services\Cfg;
 
 class Application
 {
@@ -16,6 +17,7 @@ class Application
     {
         $this->config = new Config($configPath);
         static::$app = $this;
+        Cfg::boot($this);
     }
 
     public static function config()
@@ -29,7 +31,6 @@ class Application
         $response = new Response();
         $response->header('Content-Type', 'application/json');
         try {
-            DB::boot($this->config->get('database.mysql'));
 
             (new RPC($this->config->get('route')))->handle($request, $response);
 

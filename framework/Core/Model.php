@@ -3,6 +3,7 @@
 namespace Routeless\Core;
 
 use Illuminate\Database\Query\Builder;
+use Routeless\Services\DB;
 
 abstract class Model
 {
