@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\RPC;
+namespace Routeless\Core\RPC;
 
 class Response
 {

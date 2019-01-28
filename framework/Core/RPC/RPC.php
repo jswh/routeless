@@ -1,9 +1,8 @@
 <?php
 
-namespace Core\RPC;
+namespace Routeless\Core\RPC;
 
-use Core\Exceptions\HttpException;
-use function Couchbase\defaultDecoder;
+use Routeless\Core\Exceptions\HttpException;
 
 class RPC
 {

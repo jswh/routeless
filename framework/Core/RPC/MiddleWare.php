@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Core\RPC;
+namespace Routeless\Core\RPC;
 
 
 abstract class MiddleWare {

@@ -1,13 +1,9 @@
 <?php
-namespace Core;
+namespace Routeless\Core;
 
 
-use Core\Exceptions\ErrorHandler;
-use Core\RPC\Request;
-use Core\RPC\Response;
-use Core\RPC\RPC;
-use Core\Exceptions\HttpException;
-use Services\Cfg;
+use Routeless\Core\Exceptions\ErrorHandler;
+use Routeless\Core\RPC\{Request, Response, RPC};
 
 class Application
 {

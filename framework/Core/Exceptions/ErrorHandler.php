@@ -1,10 +1,10 @@
 <?php
-namespace Core\Exceptions;
+namespace Routeless\Core\Exceptions;
 
 
 
-use Core\RPC\Request;
-use Core\RPC\Response;
+use Routeless\Core\RPC\Request;
+use Routeless\Core\RPC\Response;
 
 class ErrorHandler
 {

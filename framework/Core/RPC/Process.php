@@ -1,7 +1,7 @@
 <?php
-namespace Core\RPC;
+namespace Routeless\Core\RPC;
 
-use Core\Exceptions\HttpException;
+use Routeless\Core\Exceptions\HttpException;
 
 class Process
 {

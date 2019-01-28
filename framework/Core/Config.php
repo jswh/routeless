@@ -1,5 +1,5 @@
 <?php
-namespace Core;
+namespace Routeless\Core;
 
 class Config
 {

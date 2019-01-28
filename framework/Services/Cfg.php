@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Services;
+namespace Routeless\Services;
 
 
-use Core\Application;
+use Routeless\Core\Application;
 
 class Cfg {
     protected function __construct(Application $app) {

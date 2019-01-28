@@ -1,5 +1,5 @@
 <?php
-namespace Core\Exceptions;
+namespace Routeless\Core\Exceptions;
 
 class HttpException extends \Exception
 {

@@ -1,8 +1,7 @@
 <?php
 
-namespace Core;
+namespace Routeless\Core;
 
-use function Couchbase\defaultDecoder;
 use Illuminate\Database\Query\Builder;
 
 abstract class Model

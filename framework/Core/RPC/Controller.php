@@ -1,17 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wcaow
- * Date: 05/28
- * Time: 11:23
- */
-
-namespace Core\RPC;
+namespace Routeless\Core\RPC;
 
 
-use Core\Exceptions\HttpException;
-use Core\RPC\Request;
-use Core\RPC\Response;
+use Routeless\Core\Exceptions\HttpException;
+use Routeless\Core\RPC\Request;
+use Routeless\Core\RPC\Response;
 
 abstract class Controller
 {

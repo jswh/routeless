@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Core;
+namespace Routeless\Core;
 
 
 use Illuminate\Database\Capsule\Manager;

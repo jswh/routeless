@@ -1,11 +1,10 @@
 <?php
 
 
-namespace Services;
+namespace Routeless\Services;
 
 
-use Core\Application;
-use Core\Config;
+use Routeless\Core\Application;
 use \Redis as RedisDriver;
 
 class Redis {
