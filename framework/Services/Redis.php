@@ -4,7 +4,7 @@
 namespace Routeless\Services;
 
 
-use Redis as RedisDriver;
+use \Redis as RedisDriver;
 
 class Redis
 {
@@ -20,6 +20,10 @@ class Redis
                 self::$client->auth($config['secret']);
             }
         }
+        return self::$client;
+    }
+
+    public static function get() {
         return self::$client;
     }
 }
