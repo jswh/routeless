@@ -6,6 +6,7 @@ namespace Routeless\Core;
 use Routeless\Core\Exceptions\ErrorHandler;
 use Routeless\Core\RPC\{Request, Response, RPC};
 use Routeless\Services\Cfg;
+use Dotenv\Dotenv;
 
 class Application
 {
@@ -15,6 +16,7 @@ class Application
 
     public function __construct($configPath)
     {
+        (new Dotenv($configPath))->load();
         $this->config = new Config($configPath);
         static::$app = $this;
         Cfg::boot($this);
