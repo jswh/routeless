@@ -1,4 +1,5 @@
 <?php
+
 namespace Routeless\Core\Exceptions;
 
 class HttpException extends \Exception
@@ -8,7 +9,8 @@ class HttpException extends \Exception
         parent::__construct($message, $code);
     }
 
-    public static function dataShouldExist($data, $what = 'data') {
+    public static function dataShouldExist($data, $what = 'data')
+    {
         if (!$data) throw new HttpException(404, "$what not exist");
     }
 }

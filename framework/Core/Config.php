@@ -1,16 +1,19 @@
 <?php
+
 namespace Routeless\Core;
 
 class Config
 {
     public $path,
-    $configuration = [];
+        $configuration = [];
+
     public function __construct($path)
     {
-       $this->path = $path;
+        $this->path = $path;
     }
 
-    public function get($name) {
+    public function get($name)
+    {
         $path = explode('.', $name);
         $startPoint = array_shift($path);
         $config = $this->initConfig($startPoint);
@@ -23,14 +26,16 @@ class Config
         return $config;
     }
 
-    protected function initConfig($startPoint) {
+    protected function initConfig($startPoint)
+    {
         if (!isset($this->configuration[$startPoint])) {
             $this->requireConfigFile($startPoint);
         }
         return $this->configuration[$startPoint];
     }
 
-    protected function requireConfigFile($file) {
+    protected function requireConfigFile($file)
+    {
         $filePath = "{$this->path}/{$file}.php";
         $this->configuration[$file] = file_exists($filePath) ? require $filePath : null;
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Routeless\Core\RPC;
 
 use Routeless\Core\Exceptions\HttpException;
@@ -27,7 +28,8 @@ class Process
         return call_user_func_array([$instance, $this->method], $args);
     }
 
-    private function buildArgs($instance, $input) {
+    private function buildArgs($instance, $input)
+    {
         try {
             $params = (new \ReflectionMethod($instance, $this->method))->getParameters();
         } catch (\ReflectionException $e) {

@@ -4,13 +4,16 @@
 namespace Routeless\Services;
 
 
+use Redis as RedisDriver;
 use Routeless\Core\Application;
-use \Redis as RedisDriver;
 
-class Redis {
+class Redis
+{
     /** @var RedisDriver $client */
     protected static $client;
-    public static function get() {
+
+    public static function get()
+    {
         if (!static::$client) {
             static::$client = new RedisDriver();
             $cfg = Application::config()->get('database.redis');
