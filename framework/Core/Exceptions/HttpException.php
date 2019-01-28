@@ -8,9 +8,4 @@ class HttpException extends \Exception
     {
         parent::__construct($message, $code);
     }
-
-    public static function dataShouldExist($data, $what = 'data')
-    {
-        if (!$data) throw new HttpException(404, "$what not exist");
-    }
 }

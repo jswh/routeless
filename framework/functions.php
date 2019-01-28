@@ -47,3 +47,10 @@ if (!function_exists('randStr')) {
         return $str;
     }
 }
+
+if (!function_exists('dataShouldExist')) {
+    function dataShouldExist($data, $what = 'data')
+    {
+        if (!$data) throw new \Routeless\Core\Exceptions\HttpException(404, "$what not found");
+    }
+}
