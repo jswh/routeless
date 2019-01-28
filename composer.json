@@ -3,7 +3,7 @@
   "license": "GNU",
   "version": "0.0.1",
   "autoload": {
-    "psr-4": {"RouteLess": "framework/"}
+    "psr-4": {"RouteLess\\": "framework/"}
   },
   "require": {
     "php": ">=7.0",
