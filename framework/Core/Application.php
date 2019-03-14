@@ -16,6 +16,7 @@ class Application
 
     public function __construct($configPath)
     {
+        Dotenv\Dotenv::create($configPath)->load();
         (new Dotenv($configPath))->load();
         $this->config = new Config($configPath);
         static::$app = $this;
