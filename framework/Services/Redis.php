@@ -10,9 +10,14 @@ class Redis
 {
     /** @var RedisDriver $client */
     protected static $client;
+    protected static $config;
 
     public static function boot($config)
     {
+        self::$config = $config;
+    }
+
+    public static function get() {
         if (!static::$client) {
             static::$client = new RedisDriver();
             static::$client->pconnect($config['host'], $config['port']);
@@ -20,10 +25,6 @@ class Redis
                 self::$client->auth($config['secret']);
             }
         }
-        return self::$client;
-    }
-
-    public static function get() {
         return self::$client;
     }
 }
