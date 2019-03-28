@@ -22,6 +22,10 @@ class Application
         Cfg::boot($this);
     }
 
+    /**
+     * config
+     * @return Config
+     */
     public static function config()
     {
         return static::$app->config;

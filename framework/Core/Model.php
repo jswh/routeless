@@ -37,12 +37,21 @@ abstract class Model
     {
     }
 
+    /**
+     * get
+     *
+     * @param mixed $id
+     * @return static
+     */
     public static function get($id)
     {
         $d = new static();
         $data = DB::table($d->getTable())
             ->where($d->getPrimaryKey(), $id)
             ->first();
+        if (!$data) {
+            return null;
+        }
         $d->load($data);
 
         return $d;
@@ -107,7 +116,7 @@ abstract class Model
         if ($this->timestamps) {
             $this->updatedTime = $this->createdTime = time();
         }
-        $args = array_filter(obj2Array($this));
+        $args = obj2Array($this);
         $id = DB::table($this->getTable())
             ->insertGetId($args);
         $this->{$this->getPrimaryKey()} = $id;
@@ -123,7 +132,7 @@ abstract class Model
         if ($this->timestamps) {
             $this->updatedTime = time();
         }
-        $args = array_filter(obj2Array($this));
+        $args = obj2Array($this);
         return DB::table($this->getTable())
             ->where($this->getPrimaryKey(), '=', $this->id())
             ->update($args);
