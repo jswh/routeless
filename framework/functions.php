@@ -4,11 +4,17 @@ if (!function_exists('dash2Camel')) {
     {
         $parts = explode('-', $str);
         $parts = array_map(function ($p) {
-            $p = ucfirst(strtolower($p));
-            return $p;
+            return str2Camel($p);
         }, $parts);
 
         return implode('', $parts);
+    }
+}
+
+if (!function_exists('str2Camel')) {
+    function str2Camel($str)
+    {
+        return ucfirst(strtolower($str));
     }
 }
 
@@ -41,8 +47,11 @@ if (!function_exists('randStr')) {
     function randStr($len, $chars = 'abcdefghijklmnopqrstuvwxvyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
     {
         $str = '';
+        $charsLen = mb_strlen($chars);
+
         for ($i = 0; $i < $len; $i++) {
-            $str .= $chars[rand(0, strlen($chars) - 1)];
+            $pos = rand(0, $charsLen - 1);
+            $str .= mb_substr($chars, $pos, 1);
         }
         return $str;
     }
