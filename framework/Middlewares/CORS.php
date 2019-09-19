@@ -20,3 +20,4 @@ class CORS extends MiddleWare {
         }
     }
 }
+

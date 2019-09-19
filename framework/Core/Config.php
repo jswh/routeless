@@ -31,7 +31,12 @@ class Config
         if (!isset($this->configuration[$startPoint])) {
             $this->requireConfigFile($startPoint);
         }
-        return $this->configuration[$startPoint];
+        $cfg = $this->configuration[$startPoint];
+        if ($cfg !== null && !is_array($cfg)) {
+            throw new \Exception('basic config should be array if exist');
+        }
+
+        return $cfg;
     }
 
     protected function requireConfigFile($file)
