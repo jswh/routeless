@@ -16,8 +16,12 @@ class Redis
     {
         self::$config = $config;
     }
-
-    public static function get() {
+    /**
+     * @return RedisDriver
+     */
+    public static function get()
+    {
+        $config = self::$config;
         if (!static::$client) {
             static::$client = new RedisDriver();
             static::$client->pconnect($config['host'], $config['port']);

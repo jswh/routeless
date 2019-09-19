@@ -34,7 +34,7 @@ class RPC
 
     private function parsePath($path)
     {
-        $match = preg_match('/([a-zA-Z0-9:\/]*\/)([a-zA-z]+)\.([a-zA-Z]+)/', $path, $parts);
+        $match = preg_match('/([a-zA-Z0-9:\/]*\/)([a-zA-z-]+)\.([a-zA-Z]+)/', $path, $parts);
         if (!$match || count($parts) != 4) {
             throw new HttpException(404, 'no path match');
         }

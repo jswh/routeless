@@ -34,8 +34,7 @@ abstract class Model
     }
 
     public function afterLoad()
-    {
-    }
+    { }
 
     /**
      * get
@@ -63,13 +62,24 @@ abstract class Model
         foreach ($query as $key => $value) {
             if (is_scalar($value)) {
                 $q->where($key, $value);
-            } elseif (is_array($value) && count($query) == 2) {
-                $q->where($key, current($value), end($value));
+            } elseif (is_array($value) && count($value) == 2) {
+                $op = current($value);
+                $val = end($value);
+                if ($op == 'in') {
+                    $q->whereIn($key, $val);
+                } else {
+                    $q->where($key, $op, $val);
+                }
             }
         }
         if ($one) $q->limit(1);
         $result = static::read($q);
         return $one ? $result->first() : $result;
+    }
+
+    public static function findOne($query)
+    {
+        return self::find($query, true);
     }
 
     /**
@@ -98,8 +108,7 @@ abstract class Model
     }
 
     public function beforeSave()
-    {
-    }
+    { }
 
     public function isNew()
     {
@@ -113,7 +122,7 @@ abstract class Model
 
     private function performInsert()
     {
-        if ($this->timestamps) {
+        if ($this->timestamps ?? false) {
             $this->updatedTime = $this->createdTime = time();
         }
         $args = obj2Array($this);
@@ -144,8 +153,7 @@ abstract class Model
     }
 
     public function afterSave()
-    {
-    }
+    { }
 
     public function remove()
     {
