@@ -2,7 +2,7 @@
 
 namespace Routeless\Core\RPC;
 
-
+use Routeless\Contracts\Authorizable;
 use Routeless\Core\Exceptions\HttpException;
 
 abstract class Controller
@@ -26,7 +26,7 @@ abstract class Controller
     }
 
     /**
-     * @return \Application\Models\User
+     * @return Authorizable
      * @throws HttpException
      */
     protected function checkAuth()

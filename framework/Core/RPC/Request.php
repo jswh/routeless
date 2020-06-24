@@ -2,6 +2,8 @@
 
 namespace Routeless\Core\RPC;
 
+use Routeless\Contracts\Authorizable;
+
 class Request
 {
     const HTTP_METHOD_GET = 'GET';
@@ -56,7 +58,7 @@ class Request
     }
 
     /**
-     * @return null|\Application\Models\User
+     * @return null|Authorizable
      */
     public function authUser()
     {

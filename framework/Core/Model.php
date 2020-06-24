@@ -34,7 +34,8 @@ abstract class Model
     }
 
     public function afterLoad()
-    { }
+    {
+    }
 
     /**
      * get
@@ -56,6 +57,11 @@ abstract class Model
         return $d;
     }
 
+    /**
+     * @param array $query
+     *
+     * @return static[]
+     */
     public static function find($query, $one = false)
     {
         $q = static::query();
@@ -77,6 +83,11 @@ abstract class Model
         return $one ? $result->first() : $result;
     }
 
+    /**
+     * @param Builder $query
+     *
+     * @return static
+     */
     public static function findOne($query)
     {
         return self::find($query, true);
@@ -108,7 +119,8 @@ abstract class Model
     }
 
     public function beforeSave()
-    { }
+    {
+    }
 
     public function isNew()
     {
@@ -153,7 +165,8 @@ abstract class Model
     }
 
     public function afterSave()
-    { }
+    {
+    }
 
     public function remove()
     {
@@ -165,6 +178,9 @@ abstract class Model
             ->delete();
     }
 
+    /**
+     * @return \Illuminate\Database\Query\Builder
+     */
     public static function query()
     {
         return DB::table((new static())->getTable());
